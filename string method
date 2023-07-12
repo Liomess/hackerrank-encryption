@@ -1,0 +1,22 @@
+def encryption(s):
+    l=len(s)
+    row=math.floor(l**0.5)
+    col=math.ceil(l**0.5)
+    while row*col<l:
+        row+=1
+    mat=[[''for i in range(col)]for j in range(row)]
+    k=0
+    for i in range(row):
+        for j in range(col):
+            if k<l:
+                mat[i][j]=s[k]
+                k+=1
+            else:
+                break
+    ans=""
+    for i in range(col):
+        ans+=" "
+        for j in range(row):
+            ans+=mat[j][i]
+    ans=ans[1:]
+    return ans
